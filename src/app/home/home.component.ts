@@ -1,16 +1,29 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-home',
   standalone: true,
-  imports: [],
+  imports:[CommonModule, ReactiveFormsModule],
+  selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
+
 export class HomeComponent {
-  public maValeur : string | undefined ;
+  country = new FormControl('');
+
+  public title : string;
+  public intro : string;
+  public description : string;
   
   constructor(){
-    this.maValeur = "zqddz World !" ;
+    this.title = "Country Infos" ;
+    this.intro = "Get all info of a country" ;
+    this.description = "Put a country name right above in the field";
+  }
+
+  displayCountry(){
+    alert(this.country.value)
   }
 }
